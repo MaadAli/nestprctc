@@ -17,9 +17,9 @@ export class Store extends BaseEntity {
     @Column()
     name: string;
 
-    @OneToMany(type => Store, store => store.users, {eager: false})
+    @OneToMany(type => Users, (user) => user.store, {eager: true})
     users: Users[]
 
-    @OneToMany(type => Store, store => store.products, {eager: false})
+    @OneToMany(type => Products, (product) => product.store, {eager: true})
     products: Products[]
 }

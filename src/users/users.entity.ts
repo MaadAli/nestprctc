@@ -34,10 +34,10 @@ export class Users extends BaseEntity {
     @Column()
     storeId: number;
 
-    @OneToMany(type => Users, user => user.products, {eager: false})
+    @OneToMany(type => Products, (product) => product.user, {eager: true})
     products: Products[]
 
-    @ManyToOne(type => Store, store => store.users, {eager: true})
+    @ManyToOne(type => Store, (store) => store.users, {eager: false})
     store: Store
 
    

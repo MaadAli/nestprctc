@@ -41,9 +41,9 @@ export class Products extends BaseEntity {
     @Column()
     userId: number;
 
-    @ManyToOne(type => Store, store => store.products, {eager: true})
+    @ManyToOne(type => Store, (store) => store.products, {eager: false})
     store: Store
 
-    @ManyToOne(type => Users, user => user.products, {eager: true})
+    @ManyToOne(type => Users, (user) => user.products, {eager: false})
     user: Users
 }
